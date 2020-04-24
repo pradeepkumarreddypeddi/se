@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <conio.h>
-
+void check();
+int bank();
+int detailscheck();
 int main()
 {
     char username[15];

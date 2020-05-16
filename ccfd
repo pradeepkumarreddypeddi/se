@@ -20,10 +20,10 @@ public static void main(String args[])throws IOException, InterruptedException {
         Thread.sleep(250);
         System.out.println("2) Deposit to a bank account");
         Thread.sleep(250);
-         System.out.println("3) Withdraw to bank account");
+        System.out.println("3) Withdraw to bank account");
         Thread.sleep(250);
         System.out.println("4) Print the detailed account information including last transactions");
-        Thread.sleep(250);     
+        Thread.sleep(250);
         System.out.println("5) Quit");       
         System.out.println();      
         System.out.print("                       Enter Option [1-5]: ");
@@ -60,7 +60,7 @@ public static void main(String args[])throws IOException, InterruptedException {
                      System.out.println("Enter a account password :");
                      Account_Password = Integer.parseInt(br.readLine());
                      myBank.Transactions(Account_Number, Account_Password);
-                     break; 
+                     break;
             case 5 : System.out.println("Please Enter your password :");
                      Pass = Integer.parseInt(br.readLine());
                      if(Pass == myBank.Password) {
@@ -107,7 +107,19 @@ static class Bank {
         }  
         System.out.println("                       You have entered a wrong Account number or Password.");
     }
-   
+    public void Deposit(int Account_Number, int pass, double Money) {  
+        for (int i =0; i<numOfAccounts; i++) {     
+            int a = accounts[i].getAccountNum()[0];
+            if (Account_Number == a) {
+                int p = accounts[i].getAccountNum()[1];
+                if( pass == p) {
+                    accounts[i].deposit(Money);
+                    return;   
+                }
+            }   
+        }  
+        System.out.println("                       You have entered a wrong Account number or Password.");
+    }
     public void Transactions(int Account_Number, int pass) {
         for(int i = 0;i<numOfAccounts; i++) {
             int a = accounts[i].getAccountNum()[0];
